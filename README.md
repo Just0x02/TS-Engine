@@ -1,0 +1,1 @@
+Run `./build.sh` for first time installation.
