@@ -1,0 +1,11 @@
+{
+	"source": "./data/resources/sara.png",
+	"spriteMeta": {
+		"width": 16,
+		"height": 18
+	},
+	"borderWidth": 0,
+	"spacingWidth": 0,
+	"rows": 4,
+	"columns": 9
+}

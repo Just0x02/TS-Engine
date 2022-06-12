@@ -1,0 +1,8 @@
+[C:\Users\Kai\Desktop\MiliEngine\Mili-Engine-2d\dist\src\mili\index.js][function toISOString() { [native code] }][DEBUG][WATCH] >> Method 'Open' of 'Function' called with arguments:  and returned: undefined
+[C:\Users\Kai\Desktop\MiliEngine\Mili-Engine-2d\dist\src\mili\renderer.js][function toISOString() { [native code] }][DEBUG][WATCH] >> Method 'RegisterTarget' of 'Renderer' called with arguments: [object Object] and returned: undefined
+[C:\Users\Kai\Desktop\MiliEngine\Mili-Engine-2d\dist\main.js][function toISOString() { [native code] }][DEBUG][WATCH] >> Method 'Init' of 'Function' called with arguments:  and returned: [object Promise]
+[C:\Users\Kai\Desktop\MiliEngine\Mili-Engine-2d\dist\src\mili\mili.js][function toISOString() { [native code] }][DEBUG][WATCH] >> Method 'Begin' of 'Renderer' called with arguments:  and returned: [object Promise]
+[C:\Users\Kai\Desktop\MiliEngine\Mili-Engine-2d\dist\main.js][function toISOString() { [native code] }][DEBUG][WATCH] >> Method 'Run' of 'Function' called with arguments:  and returned: undefined
+[C:\Users\Kai\Desktop\MiliEngine\Mili-Engine-2d\dist\src\mili\editor\editor.js][function toISOString() { [native code] }][DEBUG][WATCH] >> Method 'isScriptEditorOpen' of 'Function' called with arguments:  and returned: false
+[C:\Users\Kai\Desktop\MiliEngine\Mili-Engine-2d\dist\src\mili\editor\editor.js][function toISOString() { [native code] }][DEBUG][WATCH] >> Method 'getScriptEditorProcess' of 'Function' called with arguments:  and returned: [object Object]
+[C:\Users\Kai\Desktop\MiliEngine\Mili-Engine-2d\dist\src\mili\editor\editor.js][function toISOString() { [native code] }][DEBUG][WATCH] >> Method 'ToggleEditor' of 'Function' called with arguments:  and returned: [object Promise]

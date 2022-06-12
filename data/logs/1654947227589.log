@@ -1,0 +1,88 @@
+[C:\Users\Kai\Desktop\MiliEngine\Mili-Engine-2d\dist\src\mili\index.js][function toISOString() { [native code] }][DEBUG][WATCH] >> Method 'Open' of 'class Editor {
+    static Open() {
+        this.EDITOR_MODE = true;
+        window_1.WindowEvents.onKey('~', () => this.ToggleEditor());
+    }
+    static ToggleEditor() {
+        return __awaiter(this, void 0, void 0, function* () {
+            if (!this.EDITOR_MODE)
+                return;
+            if (manager_1.ScriptManager.isScriptEditorOpen()) {
+                console.log(`Script editor is already open...`);
+            }
+            else {
+                console.log(`Opening script editor...`);
+                manager_1.ScriptManager.getScriptEditorProcess();
+            }
+        });
+    }
+}' called with arguments:  and returned: undefined
+[C:\Users\Kai\Desktop\MiliEngine\Mili-Engine-2d\dist\main.js][function toISOString() { [native code] }][DEBUG][WATCH] >> Method 'Init' of 'class MiliEngine {
+    static Init() {
+        return __awaiter(this, void 0, void 0, function* () {
+            this.renderer = new renderer_1.Renderer();
+        });
+    }
+    static Run() {
+        this.renderer.Begin();
+    }
+}' called with arguments:  and returned: [object Promise]
+[C:\Users\Kai\Desktop\MiliEngine\Mili-Engine-2d\dist\src\mili\renderer.js][function toISOString() { [native code] }][DEBUG][WATCH] >> Method 'RegisterTarget' of '[object Object]' called with arguments: [object Object] and returned: undefined
+[C:\Users\Kai\Desktop\MiliEngine\Mili-Engine-2d\dist\main.js][function toISOString() { [native code] }][DEBUG][WATCH] >> Method 'Run' of 'class MiliEngine {
+    static Init() {
+        return __awaiter(this, void 0, void 0, function* () {
+            this.renderer = new renderer_1.Renderer();
+        });
+    }
+    static Run() {
+        this.renderer.Begin();
+    }
+}' called with arguments:  and returned: undefined
+[C:\Users\Kai\Desktop\MiliEngine\Mili-Engine-2d\dist\src\mili\mili.js][function toISOString() { [native code] }][DEBUG][WATCH] >> Method 'Begin' of '[object Object]' called with arguments:  and returned: [object Promise]
+[C:\Users\Kai\Desktop\MiliEngine\Mili-Engine-2d\dist\src\mili\editor\editor.js][function toISOString() { [native code] }][DEBUG][WATCH] >> Method 'isScriptEditorOpen' of 'class ScriptManager {
+    static getScriptEditorProcess() {
+        if (this.vsCodeInstance && !this.vsCodeInstance.killed)
+            return this.vsCodeInstance;
+        this.vsCodeInstance = (0, child_process_1.execFile)("bash", [this.editorScriptFile, "./"]);
+        this.vsCodeInstance.on('exit', () => this.vsCodeInstance = null);
+        this.vsCodeInstance.on('close', () => this.vsCodeInstance = null);
+        this.vsCodeInstance.on('error', () => this.vsCodeInstance = null);
+        return this.vsCodeInstance;
+    }
+    static isScriptEditorOpen() {
+        return this.vsCodeInstance != null;
+    }
+}' called with arguments:  and returned: false
+[C:\Users\Kai\Desktop\MiliEngine\Mili-Engine-2d\dist\src\mili\editor\editor.js][function toISOString() { [native code] }][DEBUG][WATCH] >> Method 'getScriptEditorProcess' of 'class ScriptManager {
+    static getScriptEditorProcess() {
+        if (this.vsCodeInstance && !this.vsCodeInstance.killed)
+            return this.vsCodeInstance;
+        this.vsCodeInstance = (0, child_process_1.execFile)("bash", [this.editorScriptFile, "./"]);
+        this.vsCodeInstance.on('exit', () => this.vsCodeInstance = null);
+        this.vsCodeInstance.on('close', () => this.vsCodeInstance = null);
+        this.vsCodeInstance.on('error', () => this.vsCodeInstance = null);
+        return this.vsCodeInstance;
+    }
+    static isScriptEditorOpen() {
+        return this.vsCodeInstance != null;
+    }
+}' called with arguments:  and returned: [object Object]
+[C:\Users\Kai\Desktop\MiliEngine\Mili-Engine-2d\dist\src\mili\editor\editor.js][function toISOString() { [native code] }][DEBUG][WATCH] >> Method 'ToggleEditor' of 'class Editor {
+    static Open() {
+        this.EDITOR_MODE = true;
+        window_1.WindowEvents.onKey('~', () => this.ToggleEditor());
+    }
+    static ToggleEditor() {
+        return __awaiter(this, void 0, void 0, function* () {
+            if (!this.EDITOR_MODE)
+                return;
+            if (manager_1.ScriptManager.isScriptEditorOpen()) {
+                console.log(`Script editor is already open...`);
+            }
+            else {
+                console.log(`Opening script editor...`);
+                manager_1.ScriptManager.getScriptEditorProcess();
+            }
+        });
+    }
+}' called with arguments:  and returned: [object Promise]
