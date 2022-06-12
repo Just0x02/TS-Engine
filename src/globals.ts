@@ -14,8 +14,7 @@ declare global {
 		? true
 		: false;
 
-	type Integer<T extends number> = `${T}` extends `${bigint}` ? T : never;
-	type Float<T extends number> = T extends Integer<T> ? never : T;
+	type IteratorInt = { [Symbol.iterator](): IterableIterator<number>; };
 
 
 	function ForcedCast<TO>(x?: any): TO;

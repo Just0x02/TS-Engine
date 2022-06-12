@@ -3,5 +3,5 @@ import { Renderer } from '../renderer';
 
 export interface IDrawable
 {
-	Draw(renderer: Renderer, at: Vec2): Promise<void>
+	readonly Path: Path2D
 };

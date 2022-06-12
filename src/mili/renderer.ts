@@ -1,5 +1,5 @@
 import { CanvasBuffer } from './engine/canvasbuffer';
-import { IRect } from './engine/geometry/rect';
+import { IRect, Rect } from './engine/geometry/rect';
 import { Debugger } from './engine/utils/debug';
 import { Eventful, EventCallback } from './engine/utils/eventful';
 import { Vec2 } from './engine/vec';
@@ -26,7 +26,7 @@ export class Renderer extends Eventful<RendererEvents>
 
 	public drawBuffer: CanvasBuffer = this.cbuffer; // TODO: Add ability to swap buffers
 
-	public customClearColor: Nullable<string> = "#99aaee";
+	public customClearColor: Nullable<string> = "#000";
 
 	private isPaused: boolean = false;
 	private isAlive: boolean = false;
@@ -88,6 +88,7 @@ export class Renderer extends Eventful<RendererEvents>
 	public get ctx(): CanvasRenderingContext2D { return this.drawBuffer.ctx; }
 	public get canvas(): HTMLCanvasElement { return this.drawBuffer.canvas; }
 	public get WindowCenter(): Vec2 { return new Vec2(this.drawBuffer.width / 2, this.drawBuffer.height / 2).Round(); }
+	public get WindowRect(): Rect { return new Rect(new Vec2(0, 0), this.canvas.width, this.canvas.height); }
 
 	public Resize(): void
 	{

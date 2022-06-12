@@ -2,6 +2,7 @@ import { Vec2 } from '../vec';
 import { IPosition } from '../pos';
 import { IsBetween } from '../utils/utils';
 import { IObservable } from '../observable';
+import { IDrawable } from '../drawable';
 
 export interface IRect
 {
@@ -9,7 +10,7 @@ export interface IRect
 	height: number
 };
 
-export class Rect implements IRect, IObservable
+export class Rect implements IRect, IObservable, IDrawable
 {
 	public static readonly TOP_LEFT: Vec2     = new Vec2(0, 0).AsImut();
 	public static readonly TOP_RIGHT: Vec2    = new Vec2(1, 0).AsImut();
@@ -17,9 +18,9 @@ export class Rect implements IRect, IObservable
 	public static readonly BOTTOM_RIGHT: Vec2 = new Vec2(1, 1).AsImut();
 
 	public readonly TOP_LEFT_OFFSET: Vec2     = Vec2.ZERO.AsImut();
-	public readonly TOP_RIGHT_OFFSET: Vec2    = Rect.TOP_RIGHT.Dot(this.width, this.height).AsImut();
-	public readonly BOTTOM_LEFT_OFFSET: Vec2  = Rect.BOTTOM_LEFT.Dot(this.width, this.height).AsImut();
-	public readonly BOTTOM_RIGHT_OFFSET: Vec2 = Rect.BOTTOM_RIGHT.Dot(this.width, this.height).AsImut();
+	public readonly TOP_RIGHT_OFFSET: Vec2    = Rect.TOP_RIGHT.Multiply(this.width, this.height).AsImut();
+	public readonly BOTTOM_LEFT_OFFSET: Vec2  = Rect.BOTTOM_LEFT.Multiply(this.width, this.height).AsImut();
+	public readonly BOTTOM_RIGHT_OFFSET: Vec2 = Rect.BOTTOM_RIGHT.Multiply(this.width, this.height).AsImut();
 
 	constructor(
 		public pos: Vec2,
@@ -28,6 +29,15 @@ export class Rect implements IRect, IObservable
 	)
 	{
 
+	}
+	
+	public get Path(): Path2D
+	{
+		let path: Path2D = new Path2D();
+
+		path.rect(this.pos.x, this.pos.y, this.width, this.height);
+
+		return path;
 	}
 
 	public get TopLeft(): Vec2

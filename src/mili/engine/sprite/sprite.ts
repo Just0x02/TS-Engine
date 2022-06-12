@@ -4,7 +4,7 @@ import { MiliImage } from '../image';
 import { Renderer } from '../../renderer';
 import { Vec2 } from '../vec';
 
-export class Sprite implements IRect, IDrawable
+export class Sprite implements IRect
 {
 	public image: MiliImage;
 

@@ -7,7 +7,7 @@ import { Vec2 } from '../vec';
 
 // Instead of making all subsprites at once this will dynamically load them
 // based on it's current FrameIndex
-export class DynamicSprite implements Lazy.ILazy, IDrawable
+export class DynamicSprite implements Lazy.ILazy
 {
 	public frameIndex: number = 0;
 	public isLoaded: Promise<void>;

@@ -1,15 +1,28 @@
 import { Renderer } from "./renderer";
 import path from 'path';
 import { Debugger } from "./engine/utils/debug";
+import { Vec2 } from './engine/vec';
+import { WindowEvents } from './window/window';
+import { IPosition } from './engine/pos';
 
 export class MiliEngine
 {
 	public static readonly RootDir: string = path.resolve(__dirname, "../../../");
 	public static renderer: Nullable<Renderer> = null;
+	private static lastMousePosition: Vec2 = new Vec2(0, 0);
+
+	public static get MousePos(): Vec2
+	{
+		return this.lastMousePosition;
+	}
 
 	@Debugger.watch()
 	public static async Init(): Promise<void>
 	{
+		WindowEvents.onMouseMove((mouseEvent: IPosition) => {
+			this.lastMousePosition.Set(mouseEvent);
+		});
+
 		this.renderer = new Renderer();
 	}
 

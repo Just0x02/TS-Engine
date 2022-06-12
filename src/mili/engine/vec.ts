@@ -1,7 +1,8 @@
 import { IPosition } from './pos';
-import { Clamp } from './utils/utils';
+import { Clamp, random } from './utils/utils';
 import { Immutable } from './utils/immutable';
 import { IObservable } from './observable';
+import { IRect, Rect } from './geometry/rect';
 
 export class Vec2
 {
@@ -13,6 +14,10 @@ export class Vec2
 		this.x = x;
 		this.y = y;
 	}
+
+	//////////////////////////////////////////////////////
+
+	//////////////////////////////////////////////////////
 
 	public AsImut(): Vec2
 	{
@@ -51,7 +56,23 @@ export class Vec2
 		return new Vec2(a.x + b.x, a.y + b.y);
 	}
 
-	public Dot(x: number | IPosition, y: number = 0): Vec2
+	public Sub(x: number | IPosition, y: number = 0): Vec2
+	{
+		if (typeof x !== 'number')
+		{
+			y = x.y;
+			x = x.x;
+		}
+
+		return new Vec2(this.x - x, this.y - y);
+	}
+
+	public static Sub(a: IPosition, b: IPosition): Vec2
+	{
+		return new Vec2(a.x - b.x, a.y - b.y);
+	}
+
+	public Multiply(x: number | IPosition, y: number = 0): Vec2
 	{
 		if (typeof x !== 'number')
 		{
@@ -62,9 +83,23 @@ export class Vec2
 		return new Vec2(this.x * x, this.y * y);
 	}
 
-	public static Dot(a: IPosition, b: IPosition): Vec2
+	public static Multiply(a: IPosition, b: IPosition): Vec2
 	{
 		return new Vec2(a.x * b.x, a.y * b.y);
+	}
+
+	public Set(x: number | IPosition, y: number = 0): Vec2
+	{
+		if (typeof x !== 'number')
+		{
+			y = x.y;
+			x = x.x;
+		}
+
+		this.x = x;
+		this.y = y;
+
+		return this;
 	}
 
 	//////////////////////////////////////////////////////
@@ -118,11 +153,11 @@ export class Vec2
 
 	public Normalize(): Vec2
 	{
-		let len: number = this.x * this.x + this.y * this.y;
+		let len: number = this.Length();
 
 		if (len > 0)
 		{
-			len = 1 / Math.sqrt(len);
+			len = 1 / len;
 
 			this.x *= len;
 			this.y *= len;
@@ -141,15 +176,19 @@ export class Vec2
 		return this;
 	}
 
-
 	//////////////////////////////////////////////////////
 
-	public static From(position: IPosition | IObservable): Vec2
+	public static From(position: IPosition | IObservable | IRect): Vec2
 	{
 		if ((<Index> position).pos !== undefined)
 		{
 			position = position as IObservable;
 			return new Vec2(position.pos.x, position.pos.y);
+		}
+		else if ((<Index> position).width !== undefined)
+		{
+			position = position as IRect;
+			return new Vec2(position.width, position.height);
 		}
 
 		position = position as IPosition;
@@ -201,8 +240,24 @@ export class Vec2
 		return intersection;
 	}
 
+	public static Random(bounds?: Rect)
+	{
+		if (!bounds) return new Vec2(Math.random(), Math.random());
+		return new Vec2(
+			random(bounds.pos.x, bounds.pos.x + bounds.width), random(bounds.pos.y, bounds.pos.y + bounds.height)
+		);
+	}
+
 	public static get ZERO(): Vec2
 	{
 		return new Vec2();
+	}
+
+
+	//////////////////////////////////////////
+
+	public toString(): string
+	{
+		return `Vec2(${this.x}, ${this.y})`;
 	}
 }

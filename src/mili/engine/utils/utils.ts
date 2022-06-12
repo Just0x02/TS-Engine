@@ -26,3 +26,23 @@ export function Lerp(a: number, b: number, t: number = 0.5): number
 {
 	return a + (b - a) * t;
 }
+
+export function DegToRad(deg: number): number
+{
+	return deg * (Math.PI / 180);
+}
+
+export function RadToDeg(rad: number): number
+{
+	return rad * (180 / Math.PI);
+}
+
+export function random(min: number, max: number): number
+{
+	return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+export function random0(max: number): number
+{
+	return random(0, max);
+}

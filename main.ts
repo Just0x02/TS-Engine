@@ -2,6 +2,7 @@ import { Mili } from './src';
 import { Renderer } from './src/mili/renderer';
 import { Vec2 } from './src/mili/engine/vec';
 import { Tilemap } from './src/mili/engine/tilemap';
+import { Line } from './src/mili/engine/geometry/line';
 
 async function main()
 {	
@@ -20,25 +21,39 @@ async function main()
 	// 	dSprite.Draw(Mili.MiliEngine.renderer!, new Mili.Vec2(50, 50));
 	// });
 
-	const renderer: Renderer = Mili.MiliEngine.renderer!; // Should be initialized already.
+	const renderer: Mili.Renderer = Mili.MiliEngine.renderer!; // Should be initialized already.
+	const walls: Mili.Line[] = [];
+	const windowRect: Mili.Rect = renderer.WindowRect;
 
-	var player: Vec2 = new Vec2(8, 8);
-	var playerDelta: Vec2 = new Vec2(0, 0);
-	var playerAngle: number = 0.0;
-	const mapWidth: number = 8, mapHeight: number = 8;
-	const map: number[] = [
-		1, 1, 1, 1, 1, 1, 1, 1,
-		1, 0, 0, 0, 0, 0, 0, 1,
-		1, 0, 0, 1, 1, 0, 0, 1,
-		1, 0, 0, 0, 0, 0, 0, 1,
-		1, 0, 0, 0, 0, 0, 0, 1,
-		1, 0, 0, 0, 0, 0, 0, 1,
-		1, 0, 0, 0, 0, 0, 0, 1,
-		1, 1, 1, 1, 1, 1, 1, 1
-	];
+	walls.push(new Mili.Line(windowRect.TopLeft.Add(-1, -1), windowRect.TopRight.Add(-1, -1)));
+	walls.push(new Mili.Line(windowRect.TopRight.Add(-1, -1), windowRect.BottomRight.Add(1, 1)));
+	walls.push(new Mili.Line(windowRect.BottomRight.Add(1, 1), windowRect.BottomLeft.Add(1, 1)));
+	walls.push(new Mili.Line(windowRect.BottomLeft.Add(1, 1), windowRect.TopLeft.Add(-1, -1)));
 
+	for (let i = 0; i < 4; i++)
+	{
+		walls.push(
+			new Line(
+				Mili.Vec2.Random(windowRect),
+				Mili.Vec2.Random(windowRect)
+			)
+		);
+	}
 
-	
+	const view: Mili.Ray2dView = new Mili.Ray2dView(renderer.WindowCenter);
+
+	renderer.RegisterTarget({
+		async Render(renderer: Renderer)
+		{
+			renderer.ctx.strokeStyle = "#999";
+			for (let wall of walls)
+				renderer.ctx.stroke(wall.Path);
+
+			view.pos.Set(Mili.MiliEngine.MousePos);
+			await view.Render(renderer);
+			await view.Look(renderer, walls);
+		}
+	});
 }
 
 Mili.Dev();
