@@ -1,6 +1,6 @@
-import { Position } from "./pos";
+import { IPosition } from "./pos";
 
 export interface IObservable
 {
-	pos: Position
+	pos: IPosition
 };

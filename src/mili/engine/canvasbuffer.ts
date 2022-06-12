@@ -1,4 +1,4 @@
-import { Position } from "./pos";
+import { IPosition } from "./pos";
 import { IRect } from './geometry/rect';
 import { MiliImage } from './image';
 import { Debugger } from "./utils/debug";
@@ -68,7 +68,7 @@ export class CanvasBuffer implements Readonly<IRect>
 	}
 
 	// Closes buffer and returns whatever it had drawn 
-	public Flush(at?: Position, size?: IRect): ImageData
+	public Flush(at?: IPosition, size?: IRect): ImageData
 	{
 		const data: ImageData = this.Get(at, size);
 
@@ -87,7 +87,7 @@ export class CanvasBuffer implements Readonly<IRect>
 		return img;
 	}
 
-	public Get(at?: Position, size?: IRect): ImageData
+	public Get(at?: IPosition, size?: IRect): ImageData
 	{
 		return <ImageData> this.ctx.getImageData(
 			at?.x ?? 0, at?.y ?? 0, 
@@ -96,12 +96,12 @@ export class CanvasBuffer implements Readonly<IRect>
 		);
 	}
 
-	public Put(data: ImageData, at?: Position): void
+	public Put(data: ImageData, at?: IPosition): void
 	{
 		this.ctx.putImageData(data, at?.x ?? 0, at?.y ?? 0);
 	}
 
-	public static From(parentBuffer: CanvasBuffer, offset?: Position, size?: IRect): CanvasBuffer
+	public static From(parentBuffer: CanvasBuffer, offset?: IPosition, size?: IRect): CanvasBuffer
 	{
 		let tmp: CanvasBuffer = new CanvasBuffer(size?.width ?? parentBuffer.canvas.width, size?.height ?? parentBuffer.canvas.height);
 		

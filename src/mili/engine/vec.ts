@@ -1,4 +1,4 @@
-import { Position } from './pos';
+import { IPosition } from './pos';
 import { Clamp } from './utils/utils';
 import { Immutable } from './utils/immutable';
 
@@ -34,7 +34,7 @@ export class Vec2
 
 	//////////////////////////////////////////////////////
 
-	public Add(x: number | Position, y: number = 0): Vec2
+	public Add(x: number | IPosition, y: number = 0): Vec2
 	{
 		if (typeof x !== 'number')
 		{
@@ -45,12 +45,12 @@ export class Vec2
 		return new Vec2(this.x + x, this.y + y);
 	}
 
-	public static Add(a: Position, b: Position): Vec2
+	public static Add(a: IPosition, b: IPosition): Vec2
 	{
 		return new Vec2(a.x + b.x, a.y + b.y);
 	}
 
-	public Mul(x: number | Position, y: number = 0): Vec2
+	public Mul(x: number | IPosition, y: number = 0): Vec2
 	{
 		if (typeof x !== 'number')
 		{
@@ -61,7 +61,7 @@ export class Vec2
 		return new Vec2(this.x * x, this.y * y);
 	}
 
-	public static Mul(a: Position, b: Position): Vec2
+	public static Mul(a: IPosition, b: IPosition): Vec2
 	{
 		return new Vec2(a.x * b.x, a.y * b.y);
 	}
@@ -82,14 +82,21 @@ export class Vec2
 		return this;
 	}
 
-	public Clamp(between: [Position, Position]): Vec2
+	public Clamp(...between: [IPosition, IPosition]): Vec2
 	{
-		const pos1: Position = between[0];
-		const pos2: Position = between[1];
+		const pos1: IPosition = between[0];
+		const pos2: IPosition = between[1];
 
 		return this
 				.ClampX(pos1.x, pos2.x)
 				.ClampY(pos1.y, pos2.y); 
+	}
+	
+	//////////////////////////////////////////////////////
+
+	public DistanceTo(other: IPosition): number
+	{
+		return Math.sqrt((other.x - this.x) ** 2 + (other.x - this.x) ** 2)
 	}
 
 	//////////////////////////////////////////////////////

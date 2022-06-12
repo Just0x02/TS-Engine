@@ -1,5 +1,5 @@
 import { Vec2 } from '../vec';
-import { Position } from '../pos';
+import { IPosition } from '../pos';
 import { IsBetween } from '../utils/utils';
 import { IObservable } from '../observable';
 
@@ -53,7 +53,7 @@ export class Rect implements IRect, IObservable
 			.Add(this.pos);
 	}
 
-	public Contains(pos: Position)
+	public Contains(pos: IPosition)
 	{
 		let topLeft: Vec2 = this.TopLeft;
 		let bottomRight: Vec2 = this.BottomRight;
