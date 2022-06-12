@@ -6,34 +6,34 @@ import { Vec2 } from './vec';
 import { IObservable } from './observable';
 import { IDrawable } from './drawable';
 
-export class Tile implements Readonly<IRect>, IDrawable, IObservable
-{
-	public readonly width: number;
-	public readonly height: number;
-	public readonly mapPosition: Vec2 = new Vec2(); // Position in tile map
-	public readonly pos: Vec2 = new Vec2(); // Position on screen
+// export class Tile implements Readonly<IRect>, IDrawable, IObservable
+// {
+// 	public readonly width: number;
+// 	public readonly height: number;
+// 	public readonly mapPosition: Vec2 = new Vec2(); // Position in tile map
+// 	public readonly pos: Vec2 = new Vec2(); // Position on screen
 
-	constructor(
-		size: number,
-		mapPos: IPosition,
-		at: Vec2
-	)
-	{
-		this.width = size;
-		this.height = size;
-	}
+// 	constructor(
+// 		size: number,
+// 		mapPos: IPosition,
+// 		at: Vec2
+// 	)
+// 	{
+// 		this.width = size;
+// 		this.height = size;
+// 	}
 	
-	Draw(renderer: Renderer, at: Vec2): Promise<void> {
-		throw new Error('Method not implemented.');
-	}
+// 	Draw(renderer: Renderer, at: Vec2): Promise<void> {
+// 		throw new Error('Method not implemented.');
+// 	}
 
-	public async Render(renderer: Renderer)
-	{
+// 	public async Render(renderer: Renderer)
+// 	{
 		
-	}
-}
+// 	}
+// }
 
-
+// TODO: Fix this shit
 export class Tilemap implements Readonly<IRect>
 {
 	public readonly width: number;
@@ -44,7 +44,7 @@ export class Tilemap implements Readonly<IRect>
 
 	public readonly tileSize: number; // Tile size in pixels
 	
-	private tiles: Nullable<Sprite>[][];
+	private tiles: number[][];
 
 	constructor(
 		tileSize: number,
@@ -60,10 +60,10 @@ export class Tilemap implements Readonly<IRect>
 		this.width = this.tileSize * this.tileColumns;
 		this.height = this.tileSize * this.tileRows;
 
-		this.tiles = Array(this.tileColumns).fill(Array(this.tileRows)).fill(null);
+		this.tiles = Array(this.tileColumns).fill(Array(this.tileRows)).fill(0);
 	}
 
-	public At(x: number | IPosition, y?: number)
+	public At(x: number | IPosition, y: number = 0)
 	{
 		if (typeof x !== 'number')
 		{
@@ -71,6 +71,6 @@ export class Tilemap implements Readonly<IRect>
 			x = x.x;
 		}
 
-
+		return this.tiles[y][x];
 	}
 }

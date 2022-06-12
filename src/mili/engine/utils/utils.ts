@@ -21,3 +21,8 @@ export function IsBetween(min: number, x: number, max: number): boolean
 {
 	return x >= min && x <= max;
 }
+
+export function Lerp(a: number, b: number, t: number = 0.5): number
+{
+	return a + (b - a) * t;
+}

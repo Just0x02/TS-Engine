@@ -17,9 +17,9 @@ export class Rect implements IRect, IObservable
 	public static readonly BOTTOM_RIGHT: Vec2 = new Vec2(1, 1).AsImut();
 
 	public readonly TOP_LEFT_OFFSET: Vec2     = Vec2.ZERO.AsImut();
-	public readonly TOP_RIGHT_OFFSET: Vec2    = Rect.TOP_RIGHT.Mul(this.width, this.height).AsImut();
-	public readonly BOTTOM_LEFT_OFFSET: Vec2  = Rect.BOTTOM_LEFT.Mul(this.width, this.height).AsImut();
-	public readonly BOTTOM_RIGHT_OFFSET: Vec2 = Rect.BOTTOM_RIGHT.Mul(this.width, this.height).AsImut();
+	public readonly TOP_RIGHT_OFFSET: Vec2    = Rect.TOP_RIGHT.Dot(this.width, this.height).AsImut();
+	public readonly BOTTOM_LEFT_OFFSET: Vec2  = Rect.BOTTOM_LEFT.Dot(this.width, this.height).AsImut();
+	public readonly BOTTOM_RIGHT_OFFSET: Vec2 = Rect.BOTTOM_RIGHT.Dot(this.width, this.height).AsImut();
 
 	constructor(
 		public pos: Vec2,

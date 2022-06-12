@@ -18,4 +18,15 @@ export class MiliEngine
 	{
 		this.renderer!.Begin();
 	}
+
+	// For manual rendering targets
+	@Debugger.watch()
+	public static Use(cb: (renderer: Renderer) => void | Promise<void>)
+	{
+		if (!this.renderer) throw "You must initialize before assigning tasks to the renderer!";
+
+		this.renderer.RegisterTarget({
+			async Render(renderer: Renderer) { await cb(renderer); }
+		});
+	}
 }

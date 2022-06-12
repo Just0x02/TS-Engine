@@ -14,6 +14,9 @@ declare global {
 		? true
 		: false;
 
+	type Integer<T extends number> = `${T}` extends `${bigint}` ? T : never;
+	type Float<T extends number> = T extends Integer<T> ? never : T;
+
 
 	function ForcedCast<TO>(x?: any): TO;
 	function sleep(ms: number): Promise<void>;

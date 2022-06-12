@@ -95,7 +95,7 @@ export class Eventful<EVENT_SCHEME extends string = StandardEvents>
 
 	public async Dispatch<T extends EVENT_SCHEME, K extends readonly any[] = any[]>(id: T, ...data: K): Promise<void>
 	{
-		if (!this.listeners.has(id)) return;
+		if (!this.listeners.has(id) || this.listeners.get(id)!.length == 0) return;
 
 		this.listeners.set(id, this.listeners.get(id)!.filter((entry: ListenerEntry) => {
 			entry.listener(...data);
