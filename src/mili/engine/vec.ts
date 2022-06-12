@@ -1,6 +1,7 @@
 import { IPosition } from './pos';
 import { Clamp } from './utils/utils';
 import { Immutable } from './utils/immutable';
+import { IObservable } from './observable';
 
 export class Vec2
 {
@@ -100,6 +101,18 @@ export class Vec2
 	}
 
 	//////////////////////////////////////////////////////
+
+	public static From(position: IPosition | IObservable): Vec2
+	{
+		if ((<Index> position).pos !== undefined)
+		{
+			position = position as IObservable;
+			return new Vec2(position.pos.x, position.pos.y);
+		}
+
+		position = position as IPosition;
+		return new Vec2(position.x, position.y);
+	}
 
 	public static get ZERO(): Vec2
 	{
