@@ -9,6 +9,5 @@ export function PreloadImage(imageSrc: string, relativeSrc?: boolean): void
 	preloadLink.as = "image";
 	preloadLink.href = relativeSrc ? imageSrc : path.resolve(MiliEngine.RootDir, imageSrc);
 
-
 	document.head.appendChild(preloadLink);
 }

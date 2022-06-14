@@ -28,6 +28,7 @@ export class SpriteSheet
 	public spacingWidth: number;
 	public rows: number;
 	public columns: number;
+	public size: number;
 
 	public subSprites: Sprite[] = [];
 
@@ -48,6 +49,7 @@ export class SpriteSheet
 		
 		this.columns = columns;
 		this.rows = rows;
+		this.size = rows * columns;
 	}
 
 	public AsSpriteIndex(col: number, row?: number): Vec2

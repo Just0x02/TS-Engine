@@ -48,6 +48,7 @@ export class Ray2dView implements IObservable, IRenderable
 				}
 			}
 
+			// BUG: Rays facing both down and up won't hit any walls? 
 			if (closest)
 			{
 				renderer.ctx.strokeStyle = "#ffffff99";
@@ -58,10 +59,10 @@ export class Ray2dView implements IObservable, IRenderable
 				renderer.ctx.lineTo(closest.x, closest.y);
 				renderer.ctx.stroke();
 
-				if (ray.angle == (Math.PI / 2))
-				{
-					console.log(`DOWN-FACING RAY -> ${closest} (${ray})`);
-				}
+				// if (ray.angle == (Math.PI / 2))
+				// {
+				// 	console.log(`DOWN-FACING RAY -> ${closest} (${ray})`);
+				// }
 			}
 		}
 	}
