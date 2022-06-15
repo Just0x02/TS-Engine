@@ -1,4 +1,4 @@
-import { Renderer, IRenderable } from '../../renderer';
+import { Renderer, IRenderable } from './renderer';
 import { Snowflake, SnowflakeID } from '../utils/snowflake';
 
 export type SubProcessType = 'post-render' | 'pre-render';

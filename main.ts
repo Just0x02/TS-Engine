@@ -1,5 +1,5 @@
 import { Mili } from './src';
-import { Renderer } from './src/mili/renderer';
+import { Renderer } from './src/mili/engine/renderer/renderer';
 import { Vec2 } from './src/mili/engine/geometry/vec';
 import { Tilemap } from './src/mili/engine/gfx/tilemap';
 import { Line } from './src/mili/engine/geometry/line';

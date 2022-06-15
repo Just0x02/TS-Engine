@@ -1,5 +1,5 @@
 export * from './mili';
-export * from './renderer';
+export * from './engine/renderer/renderer';
 export * from './window/window';
 export * from './editor/scripting/manager';
 export * from './engine/gfx/spritesheet';

@@ -2,7 +2,7 @@ import { SpriteSheet, SpriteSheetMeta } from './spritesheet';
 import { Lazy } from '../utils/lazy';
 import { Sprite } from './sprite';
 import { IDrawable } from './drawable';
-import { Renderer } from '../../renderer';
+import { Renderer } from '../renderer/renderer';
 import { Vec2 } from '../geometry/vec';
 
 // Instead of making all subsprites at once this will dynamically load them

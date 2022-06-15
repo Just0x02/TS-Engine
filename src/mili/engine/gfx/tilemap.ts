@@ -1,5 +1,5 @@
 import { IRect } from '../geometry/rect';
-import { IRenderable, Renderer } from '../../renderer';
+import { IRenderable, Renderer } from '../renderer/renderer';
 import { Sprite } from './sprite';
 import { IPosition } from '../geometry/pos';
 import { Vec2 } from '../geometry/vec';

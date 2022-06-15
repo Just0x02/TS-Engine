@@ -1,10 +1,10 @@
-import { CanvasBuffer } from './engine/renderer/canvasbuffer';
-import { IRect, Rect } from './engine/geometry/rect';
-import { Debugger } from './engine/utils/debug';
-import { Eventful, EventCallback } from './engine/utils/eventful';
-import { Vec2 } from './engine/geometry/vec';
-import { WindowEvents } from './window/window';
-import { RendererSubProcess, SubProcessStep, SubProcessType } from './engine/renderer/subprocess';
+import { CanvasBuffer } from './canvasbuffer';
+import { IRect, Rect } from '../geometry/rect';
+import { Debugger } from '../utils/debug';
+import { Eventful, EventCallback } from '../utils/eventful';
+import { Vec2 } from '../geometry/vec';
+import { WindowEvents } from '../../window/window';
+import { RendererSubProcess, SubProcessStep, SubProcessType } from './subprocess';
 
 export interface IRenderable
 {

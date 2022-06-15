@@ -1,4 +1,4 @@
-import { IRenderable, Renderer } from '../../renderer';
+import { IRenderable, Renderer } from '../renderer/renderer';
 import { IRect, Rect } from '../geometry/rect';
 import { IObservable } from '../renderer/observable';
 import { Vec2 } from '../geometry/vec';

@@ -1,4 +1,4 @@
-import { Renderer } from "./renderer";
+import { Renderer } from "./engine/renderer/renderer";
 import path from 'path';
 import { Debugger } from "./engine/utils/debug";
 import { Vec2 } from './engine/geometry/vec';

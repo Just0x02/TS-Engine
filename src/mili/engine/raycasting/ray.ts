@@ -2,8 +2,8 @@ import { IPosition } from '../geometry/pos';
 import { IObservable } from '../renderer/observable';
 import { Vec2 } from '../geometry/vec';
 import { Line } from '../geometry/line';
-import { Renderer } from 'src/mili/renderer';
-import { IRenderable } from '../../renderer';
+import { Renderer } from 'src/mili/engine/renderer/renderer';
+import { IRenderable } from '../renderer/renderer';
 
 export class Ray2d implements IObservable
 {

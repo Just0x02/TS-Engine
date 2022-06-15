@@ -2,7 +2,7 @@ import { IObservable } from '../renderer/observable';
 import { DegToRad, RadToDeg } from '../utils/utils';
 import { Vec2 } from '../geometry/vec';
 import { Ray2d } from './ray';
-import { Renderer, IRenderable } from '../../renderer';
+import { Renderer, IRenderable } from '../renderer/renderer';
 import { Line } from '../geometry/line';
 
 export class Ray2dView implements IObservable, IRenderable

@@ -1,6 +1,6 @@
 import { IObservable } from './observable';
 import { Vec2 } from '../geometry/vec';
-import { Renderer } from '../../renderer';
+import { Renderer } from './renderer';
 
 export class Camera implements IObservable
 {
