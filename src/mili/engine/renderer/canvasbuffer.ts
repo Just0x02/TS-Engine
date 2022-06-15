@@ -1,7 +1,7 @@
-import { IPosition } from "./pos";
-import { IRect } from './geometry/rect';
-import { MiliImage } from './image';
-import { Debugger } from "./utils/debug";
+import { IPosition } from "../geometry/pos";
+import { IRect } from '../geometry/rect';
+import { MiliImage } from '../gfx/image';
+import { Debugger } from "../utils/debug";
 
 export type ImageRenderingType = 'auto' | 'pixelated' | 'crisp-edges';
 

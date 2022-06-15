@@ -1,8 +1,8 @@
-import { IDrawable } from '../drawable';
+import { IDrawable } from './drawable';
 import { IRect } from '../geometry/rect';
-import { MiliImage } from '../image';
+import { MiliImage } from './image';
 import { Renderer } from '../../renderer';
-import { Vec2 } from '../vec';
+import { Vec2 } from '../geometry/vec';
 
 export class Sprite implements IRect
 {

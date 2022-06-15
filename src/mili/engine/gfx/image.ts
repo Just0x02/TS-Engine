@@ -1,9 +1,9 @@
-import { IRect } from "./geometry/rect";
+import { IRect } from "../geometry/rect";
 import fs from 'fs';
 import path from 'path';
-import { MiliEngine } from "../mili";
-import { Lazy } from './utils/lazy';
-import { Debugger } from "./utils/debug";
+import { MiliEngine } from "../../mili";
+import { Lazy } from '../utils/lazy';
+import { Debugger } from "../utils/debug";
 
 // My own take on image loading and such
 export class MiliImage implements IRect, Lazy.ILazy

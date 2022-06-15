@@ -1,4 +1,4 @@
-import { SpriteSheet } from './mili/engine/sprite/spritesheet';
+import { SpriteSheet } from './mili/engine/gfx/spritesheet';
 declare global {
 	type ConstructorOf<T, K extends readonly any[] = any[]> = { new (...args: K): T };
 	type NeverNull<T> = T extends null ? never : T extends void ? never : T;

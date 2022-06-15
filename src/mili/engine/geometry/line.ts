@@ -1,6 +1,6 @@
-import { Vec2 } from '../vec';
+import { Vec2 } from './vec';
 import { Renderer, IRenderable } from '../../renderer';
-import { IDrawable } from '../drawable';
+import { IDrawable } from '../gfx/drawable';
 
 export class Line implements IDrawable
 {

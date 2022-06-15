@@ -1,9 +1,9 @@
 import { Renderer } from "./renderer";
 import path from 'path';
 import { Debugger } from "./engine/utils/debug";
-import { Vec2 } from './engine/vec';
+import { Vec2 } from './engine/geometry/vec';
 import { WindowEvents } from './window/window';
-import { IPosition } from './engine/pos';
+import { IPosition } from './engine/geometry/pos';
 
 export class MiliEngine
 {

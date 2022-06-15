@@ -1,7 +1,7 @@
 import { Widget } from './widget';
-import { MiliImage } from '../image';
+import { MiliImage } from '../gfx/image';
 import { Renderer } from 'src/mili/renderer';
-import { Vec2 } from '../vec';
+import { Vec2 } from '../geometry/vec';
 
 export class ImageWidget extends Widget
 {

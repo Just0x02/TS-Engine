@@ -1,7 +1,7 @@
 import { Mili } from './src';
 import { Renderer } from './src/mili/renderer';
-import { Vec2 } from './src/mili/engine/vec';
-import { Tilemap } from './src/mili/engine/tilemap';
+import { Vec2 } from './src/mili/engine/geometry/vec';
+import { Tilemap } from './src/mili/engine/gfx/tilemap';
 import { Line } from './src/mili/engine/geometry/line';
 
 async function main()

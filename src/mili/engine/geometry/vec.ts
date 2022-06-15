@@ -1,8 +1,8 @@
 import { IPosition } from './pos';
-import { Clamp, random } from './utils/utils';
-import { Immutable } from './utils/immutable';
-import { IObservable } from './observable';
-import { IRect, Rect } from './geometry/rect';
+import { Clamp, random } from '../utils/utils';
+import { Immutable } from '../utils/immutable';
+import { IObservable } from '../renderer/observable';
+import { IRect, Rect } from './rect';
 
 export class Vec2
 {

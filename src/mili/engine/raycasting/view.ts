@@ -1,6 +1,6 @@
-import { IObservable } from '../observable';
+import { IObservable } from '../renderer/observable';
 import { DegToRad, RadToDeg } from '../utils/utils';
-import { Vec2 } from '../vec';
+import { Vec2 } from '../geometry/vec';
 import { Ray2d } from './ray';
 import { Renderer, IRenderable } from '../../renderer';
 import { Line } from '../geometry/line';

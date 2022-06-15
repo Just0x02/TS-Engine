@@ -1,4 +1,4 @@
-import { IPosition } from "./pos";
+import { IPosition } from "../geometry/pos";
 
 export interface IObservable
 {

@@ -1,8 +1,8 @@
-import { CanvasBuffer } from './engine/canvasbuffer';
+import { CanvasBuffer } from './engine/renderer/canvasbuffer';
 import { IRect, Rect } from './engine/geometry/rect';
 import { Debugger } from './engine/utils/debug';
 import { Eventful, EventCallback } from './engine/utils/eventful';
-import { Vec2 } from './engine/vec';
+import { Vec2 } from './engine/geometry/vec';
 import { WindowEvents } from './window/window';
 import { RendererSubProcess, SubProcessStep, SubProcessType } from './engine/renderer/subprocess';
 

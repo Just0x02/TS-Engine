@@ -4,6 +4,10 @@ import { Snowflake, SnowflakeID } from '../utils/snowflake';
 export type SubProcessType = 'post-render' | 'pre-render';
 export type SubProcessStep = (renderer: Renderer, process: RendererSubProcess) => Promise<boolean | void>;
 
+
+/**
+ * TODO: Have all subprocesses be delegated to web workers through OffscreenCanvas API
+ */
 export class RendererSubProcess implements IRenderable, Snowflake
 {
 	public readonly id: SnowflakeID = new SnowflakeID();

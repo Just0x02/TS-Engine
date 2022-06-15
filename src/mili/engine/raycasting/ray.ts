@@ -1,6 +1,6 @@
-import { IPosition } from '../pos';
-import { IObservable } from '../observable';
-import { Vec2 } from '../vec';
+import { IPosition } from '../geometry/pos';
+import { IObservable } from '../renderer/observable';
+import { Vec2 } from '../geometry/vec';
 import { Line } from '../geometry/line';
 import { Renderer } from 'src/mili/renderer';
 import { IRenderable } from '../../renderer';

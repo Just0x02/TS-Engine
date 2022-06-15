@@ -1,8 +1,8 @@
-import { Vec2 } from '../vec';
-import { IPosition } from '../pos';
+import { Vec2 } from './vec';
+import { IPosition } from './pos';
 import { IsBetween } from '../utils/utils';
-import { IObservable } from '../observable';
-import { IDrawable } from '../drawable';
+import { IObservable } from '../renderer/observable';
+import { IDrawable } from '../gfx/drawable';
 
 export interface IRect
 {

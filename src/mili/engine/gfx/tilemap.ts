@@ -1,9 +1,9 @@
-import { IRect } from './geometry/rect';
-import { IRenderable, Renderer } from '../renderer';
-import { Sprite } from './sprite/sprite';
-import { IPosition } from './pos';
-import { Vec2 } from './vec';
-import { IObservable } from './observable';
+import { IRect } from '../geometry/rect';
+import { IRenderable, Renderer } from '../../renderer';
+import { Sprite } from './sprite';
+import { IPosition } from '../geometry/pos';
+import { Vec2 } from '../geometry/vec';
+import { IObservable } from '../renderer/observable';
 import { IDrawable } from './drawable';
 
 // export class Tile implements Readonly<IRect>, IDrawable, IObservable
