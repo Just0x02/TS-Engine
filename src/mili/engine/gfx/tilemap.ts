@@ -6,32 +6,10 @@ import { Vec2 } from '../geometry/vec';
 import { IObservable } from '../renderer/observable';
 import { IDrawable } from './drawable';
 
-// export class Tile implements Readonly<IRect>, IDrawable, IObservable
-// {
-// 	public readonly width: number;
-// 	public readonly height: number;
-// 	public readonly mapPosition: Vec2 = new Vec2(); // Position in tile map
-// 	public readonly pos: Vec2 = new Vec2(); // Position on screen
-
-// 	constructor(
-// 		size: number,
-// 		mapPos: IPosition,
-// 		at: Vec2
-// 	)
-// 	{
-// 		this.width = size;
-// 		this.height = size;
-// 	}
-	
-// 	Draw(renderer: Renderer, at: Vec2): Promise<void> {
-// 		throw new Error('Method not implemented.');
-// 	}
-
-// 	public async Render(renderer: Renderer)
-// 	{
-		
-// 	}
-// }
+export interface TileEntry
+{
+	spriteSrc?: string
+};
 
 // TODO: Fix this shit
 export class Tilemap implements Readonly<IRect>
@@ -44,12 +22,14 @@ export class Tilemap implements Readonly<IRect>
 
 	public readonly tileSize: number; // Tile size in pixels
 	
-	private tiles: number[][];
+	private tiles: string[][];
+	private cachedTileSprites: Record<string, Sprite> = {};
 
 	constructor(
 		tileSize: number,
 		tileColumns: number,
 		tileRows: number,
+		tileIndex: Index<TileEntry>
 	)
 	{
 		this.tileSize = tileSize;
@@ -61,9 +41,16 @@ export class Tilemap implements Readonly<IRect>
 		this.height = this.tileSize * this.tileRows;
 
 		this.tiles = Array(this.tileColumns).fill(Array(this.tileRows)).fill(0);
+
+		this.RebuildCache();
+	}	
+
+	public RebuildCache(): void
+	{
+		
 	}
 
-	public At(x: number | IPosition, y: number = 0)
+	public At(x: number | IPosition, y: number = 0): string
 	{
 		if (typeof x !== 'number')
 		{
@@ -72,5 +59,22 @@ export class Tilemap implements Readonly<IRect>
 		}
 
 		return this.tiles[y][x];
+	}
+
+	public async Draw(renderer: Renderer, offset: Vec2 = Vec2.ZERO, scale?: number): Promise<void>
+	{
+		let tileOffset: Vec2 = Vec2.ZERO;
+
+		for (let y = 0; y < this.tileRows; y++)
+		{
+			for (let x = 0; x < this.tileColumns; x++)
+			{
+				let tileKey: string = this.At(tileOffset); 
+				tileOffset.x += this.tileSize;
+			}
+
+			tileOffset.x = 0;
+			tileOffset.y += this.tileSize;
+		}
 	}
 }

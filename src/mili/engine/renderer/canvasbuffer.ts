@@ -2,12 +2,13 @@ import { IPosition } from "../geometry/pos";
 import { IRect } from '../geometry/rect';
 import { MiliImage } from '../gfx/image';
 import { Debugger } from "../utils/debug";
+import Settings from "../../../../mili-settings.json";
 
 export type ImageRenderingType = 'auto' | 'pixelated' | 'crisp-edges';
 
 export class CanvasBuffer implements Readonly<IRect>
 {
-	public static readonly RENDERING_TYPE: ImageRenderingType = 'pixelated';
+	public static readonly RENDERING_TYPE: ImageRenderingType = <ImageRenderingType> Settings.engine.rendering.type;
 
 	public canvas: HTMLCanvasElement = document.createElement('canvas');
 	public ctx: CanvasRenderingContext2D = this.canvas.getContext("2d")!;

@@ -3,5 +3,11 @@
 		"height": 1280,
 		"width": 1920,
 		"transparent": true
+	},
+	"engine": {
+		"rendering": {
+			"type": "pixelated"
+		},
+		"cache_images": true
 	}
 }

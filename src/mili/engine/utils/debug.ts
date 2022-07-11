@@ -79,4 +79,22 @@ export namespace Debugger
 			return x;
 		}
 	}
+
+	export function time()
+	{
+		return function(target: any, propertyKey: string, descriptor: TypedPropertyDescriptor<any>)
+		{
+			let method: Function = descriptor.value!;
+
+			descriptor.value = function()
+			{
+				console.time(propertyKey);
+				const returnValue = method.apply(this, Array.from(arguments));
+				console.timeEnd(propertyKey);
+
+				return returnValue;
+			}
+
+		}
+	}
 }
